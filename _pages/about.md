@@ -8,9 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-
-
-![Illustration of combining vision and language modalities](/images/image_to_text_vis.png){: .align-right width="300px"}
 👨🏻‍💻 I'm an MEng graduate in Mechanical Engineering from Durham University.
 
 👨🏻‍🔬 I am joining the PwC deals practice as a legal technology associate.
