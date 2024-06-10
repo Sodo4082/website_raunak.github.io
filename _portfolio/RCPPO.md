@@ -5,4 +5,4 @@ collection: portfolio
 ---
 
 
-<iframe src="/files/Resume.pdf" width="1000" height="2000"></iframe>
+<iframe src="/files/Capstone_Project.pdf" width="900" height="1300"></iframe>
