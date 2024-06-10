@@ -11,9 +11,9 @@ redirect_from:
 
 
 ![Illustration of combining vision and language modalities](/images/image_to_text_vis.png){: .align-right width="300px"}
-👨🏻‍💻 I'm a final year graduate student at the TU Berlin.
+👨🏻‍💻 I'm an MEng graduate in Mechanical Engineering from Durham University.
 
-🔬 My research interests are in bridging vision and language modalities and Self-Supervised Learning!
+🔬 I am interested in solving problems using applied AI.
 
 📚 I'm currently working towards my Master's Thesis in the field of Vision-Language-Modelling.
 
