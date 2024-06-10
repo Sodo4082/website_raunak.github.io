@@ -3,9 +3,9 @@ title: "Investigation of AI techniques to dectect MS"
 excerpt: "Implementation of various machine learning techniques to dectect MS in data and images<br/><img src='/images/eye.png'>"
 collection: portfolio
 ---
+The following PDF is a portfolio of different AI techniques that are commonly used in disease diagnosis. Whilst making this portfolio I developed important skills in Simple machine learning techniques such as SVM, KNN, t-SNE. Furthermore, I developed proficiency in more complex deep-learning techniques such as autoencoders, segmentation, transfer-learning, and data-aucgmentation for complex, customised CNN models.
 
-
-## Embedded PDF
+## Embedded PDFf
 
 <div class="pdf-container">
     <iframe src="/files/MS_diagnosis.pdf"></iframe>
