@@ -4,4 +4,5 @@ excerpt: "Implementation of Smart Proxy Models in predicting the fluid velocity 
 collection: portfolio
 ---
 
-<embed url='/files/Resume.pdf' width="600" height="500" type="application/pdf">
+
+<iframe src="/files/Resume.pdf" width="600" height="500"></iframe>
