@@ -1,9 +1,20 @@
 ---
 layout: archive
-title: "Publications"
-permalink: /publications/
+title: "Experiances"
+permalink: /experiences/
 author_profile: true
 ---
+
+# Darpan (college drama club) Play
+
+# Co-convener Adventure and Sports Club
+
+### Kareri Lake
+
+### Kedarkantha
+
+
+
 
 {% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>

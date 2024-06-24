@@ -81,13 +81,13 @@ analytics:
 # Site Author
 author:
   name             : "Cormac McCumiskey"
-  avatar           : "Profile.png"
-  bio              : "MEng in Mechanical Engineering \n Interest in applied AI"
-  location         : "Belfast/ Northern Ireland"
-  employer         : "PwC"
+  avatar           : "pancake2.png"
+  bio              : "BS-MS in Math \n Interest in ML"
+  location         : "Gurgaon/ India"
+  employer         : #"PwC"
   pubmed           : 
   #googlescholar    : "https://scholar.google.com/citations?user=UMKkDVwAAAAJ"
-  email            : "cmccumiskey@gmail.com"
+  email            : "raunakgupta4082@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "EngineerMac"
+  github           : "sodo4082"
   google_plus      :
   keybase          :
   instagram        :

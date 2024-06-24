@@ -10,13 +10,32 @@ redirect_from:
 
 👨🏻‍💻 I'm an BS-MS student in Mathematics Major and Data Science Minor from Indian Institute of Science Education and Research, Mohali, India.
 
+🔬 I am interested in understanding the working behind machine learning models and get pretty excited seeing application of pure math topics in ML and AI.
+
 👨🏻‍🔬 I am currently situated at IIT Delhi to write my final year masters thesis.
 
-🔬 I am interested in understanding the working behind machine learning models and get pretty excited seeing application of pure math topics in ML and AI.
 
 📚 My masters project is in statFEM, a workflow to accomodate for model misspecification.
 
-# Heading 2
+
+# Projects:
+
+### Bayesian Optimization and Gaussian Process
+
+### Analysis with NLP of tweets of politicians
+
+### Model Misspecification
+
+
+
+
+# Hobbies:
+
+🏐 Volleyball : Played in college team, finished 2nd place in [IISM 2023](https://www.iisertvm.ac.in/events/read/events-inter-iiser-sports-meet-2023)
+
+⚽ Football
+
+
 
 
 
