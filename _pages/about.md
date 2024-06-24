@@ -8,13 +8,13 @@ redirect_from:
   - /about.html
 ---
 
-👨🏻‍💻 I'm an MEng graduate in Mechanical Engineering from Durham University.
+👨🏻‍💻 I'm an BS-MS student in Mathematics Major and Data Science Minor from Indian Institute of Science Education and Research, Mohali, India.
 
-👨🏻‍🔬 I am joining the PwC deals practice as a legal technology associate.
+👨🏻‍🔬 I am currently situated at IIT Delhi to write my final year masters thesis.
 
-🔬 I am interested in solving problems using applied AI.
+🔬 I am interested in understanding the working behind machine learning models and get pretty excited seeing application of pure math topics in ML and AI.
 
-📚 My masters capstone project was in simulating computational fluid dynamics using AI.
+📚 My masters project is in statFEM, a workflow to accomodate for model misspecification.
 
 
 
