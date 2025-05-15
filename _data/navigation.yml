@@ -1,18 +1,18 @@
 # main links links
 main:
-  # - title: "CV"
-  #   # url: /cv/
-  #   url: /files/Resume.pdf
+  - title: "CV"
+    # url: /cv/
+    url: /files/CV_Raunak.pdf
 
-  # - title: "Portfolio"
-  #   url: /portfolio/
+  - title: "Portfolio"
+    url: /portfolio/
   
-  # - title: "Experiences"
-  #   url: /experiences/
-    # url: https://scholar.google.es/citations?user=xxxxxxxx=en
+  - title: "Experiences"
+    url: /experiences/
+    url: https://scholar.google.es/citations?user=xxxxxxxx=en
         
-  # - title: "Blog Posts"
-  #   url: /year-archive/
+  - title: "Blog Posts"
+    url: /year-archive/
 
   # - title: "Talks"
   #   url: /talks/    
