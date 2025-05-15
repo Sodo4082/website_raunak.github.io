@@ -20,11 +20,20 @@ redirect_from:
 
 # Projects:
 
+
+### Neural Kalman Filters
+[link](https://github.com/Sodo4082/Ensemble_Gradient_Kalman_Filter)
+
+
 ### Bayesian Optimization and Gaussian Process
+[link](https://github.com/Sodo4082/Bayesian_Optim_from_scratch_Summer_2023)
 
 ### Analysis with NLP of tweets of politicians
 
+
 ### Model Misspecification
+🚦In progress...
+[link]
 
 
 
