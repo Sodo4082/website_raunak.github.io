@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raunak’s Homepage — VT320</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120a00;--fg:#ffb000;--dim:#a86f00;--hi:#ffd060;--line:#5a3a00;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#120a00;--fg:#ffb000;--dim:#a86f00;--hi:#ffd060;--line:#5a3a00}}
+:root[data-theme="dark"]{--bg:#120a00;--fg:#ffb000;--dim:#a86f00;--hi:#ffd060;--line:#5a3a00}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'VT323','Courier New',monospace;font-size:22px;line-height:1.35;
+text-shadow:0 0 6px rgba(255,176,0,.55);min-height:100vh}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;
+background:repeating-linear-gradient(to bottom,rgba(0,0,0,.28) 0,rgba(0,0,0,.28) 1px,transparent 1px,transparent 3px);
+box-shadow:inset 0 0 120px rgba(0,0,0,.7)}
+.screen{max-width:1000px;margin:0 auto;padding:16px 20px 40px}
+a{color:var(--fg);text-decoration:none}
+a:hover{background:var(--fg);color:var(--bg);text-shadow:none}
+.bar{display:flex;flex-wrap:wrap;gap:4px 22px;border-bottom:2px solid var(--fg);padding-bottom:8px}
+.bar .brand{font-weight:bold;color:var(--hi);margin-right:auto}
+.bar a::before{content:"["}.bar a::after{content:"]"}
+.wrap{display:grid;grid-template-columns:240px 1fr;gap:28px;margin-top:22px}
+@media(max-width:700px){.wrap{grid-template-columns:1fr}}
+.side{border:1px solid var(--line);padding:14px}
+.avatar{border:1px dashed var(--dim);height:90px;display:flex;align-items:center;justify-content:center;color:var(--dim);margin-bottom:12px}
+.side h2{margin:0 0 4px;font-size:26px;color:var(--hi)}
+.side p{margin:0 0 12px;color:var(--dim)}
+.side ul{list-style:none;margin:0;padding:0}
+.side li::before{content:"> ";color:var(--dim)}
+h1{font-size:34px;margin:0 0 6px;color:var(--hi)}
+h1::before{content:"$ cat ";color:var(--dim)}
+h1::after{content:"█";animation:b 1s steps(1) infinite;margin-left:6px}
+@keyframes b{50%{opacity:0}}
+.year{margin:22px 0 4px;color:var(--dim);border-bottom:1px solid var(--line)}
+.year::before{content:"== "}.year::after{content:" =="}
+.post{border:1px solid var(--line);padding:10px 14px;margin:12px 0}
+.post h3{margin:0;font-size:28px;text-decoration:underline}
+.meta{color:var(--dim)}
+code{border:1px solid var(--line);padding:0 5px;color:var(--hi)}
+.foot{margin-top:30px;border-top:1px solid var(--line);padding-top:8px;color:var(--dim);font-size:18px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <nav class="bar">
+    <a class="brand" href="#">Raunak’s Homepage</a>
+    <a href="#">CV</a><a href="#">Portfolio</a><a href="#">Experiences</a><a href="#">Blog Posts</a>
+  </nav>
+  <div class="wrap">
+    <aside class="side">
+      <div class="avatar">[ no signal ]</div>
+      <h2>Raunak Raunak</h2>
+      <p>BS-MS in Math<br>Interest in ML</p>
+      <ul>
+        <li>Gurgaon / India</li>
+        <li><a href="#">Email</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Github</a></li>
+      </ul>
+    </aside>
+    <main>
+      <h1>blog_posts</h1>
+      <div class="year">2199</div>
+      <article class="post">
+        <h3><a href="#">Future Blog Post</a></h3>
+        <div class="meta">less than 1 minute read</div>
+        <div><b>Published:</b> January 01, 2199</div>
+        <p>This post will show up by default. To disable scheduling of future posts, edit <code>config.yml</code> and set <code>future: false</code>.</p>
+      </article>
+      <div class="year">2015</div>
+      <article class="post">
+        <h3><a href="#">Blog Post number 4</a></h3>
+        <div class="meta">less than 1 minute read</div>
+        <div><b>Published:</b> August 14, 2015</div>
+        <p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing this blog post. Blog posts are cool.</p>
+      </article>
+      <div class="foot">VT320 · 80x24 · AMBER PHOSPHOR · READY</div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

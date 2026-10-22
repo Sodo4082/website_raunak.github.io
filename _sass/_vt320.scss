@@ -1,0 +1,285 @@
+/* ==========================================================================\n+   VT320 THEME\n+   ========================================================================== */
+
+$vt320-background: #120a00;
+$vt320-amber: #ffb000;
+$vt320-highlight: #ffd060;
+$vt320-dim: #a86f00;
+$vt320-line: #5a3a00;
+
+body {
+  min-height: 100vh;
+  line-height: 1.35;
+}
+
+a {
+  color: $vt320-amber;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $vt320-background;
+    background: $vt320-amber;
+    text-shadow: none;
+  }
+}
+
+.masthead {
+  border-bottom: 2px solid $vt320-amber;
+
+  &__inner-wrap {
+    max-width: 1000px;
+    padding: 16px 20px 8px;
+    font-size: 22px;
+  }
+
+  &__menu-item--lg {
+    margin-right: auto;
+    padding-right: 1em;
+  }
+
+  &__brand {
+    color: $vt320-highlight;
+    font-weight: bold;
+  }
+
+  &__menu-item:not(.masthead__menu-item--lg) a::before {
+    content: "[";
+  }
+
+  &__menu-item:not(.masthead__menu-item--lg) a::after {
+    content: "]";
+  }
+}
+
+.greedy-nav {
+  background: $vt320-background;
+
+  a {
+    color: $vt320-amber;
+  }
+
+  .hidden-links {
+    background: $vt320-background;
+    border: 1px solid $vt320-line;
+  }
+
+  button {
+    color: $vt320-amber;
+  }
+}
+
+.vt320-layout {
+  max-width: 1000px;
+  margin: 22px auto 40px;
+  padding: 0 20px;
+
+  &--with-sidebar {
+    display: grid;
+    grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+    align-items: start;
+    gap: 28px;
+  }
+
+  .sidebar,
+  .archive {
+    float: none;
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .archive {
+    min-width: 0;
+    margin-bottom: 2em;
+  }
+}
+
+.sidebar {
+  padding: 14px !important;
+  border: 1px solid $vt320-line;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .author__name {
+    color: $vt320-highlight;
+    font-family: $header-font-family;
+  }
+
+  .author__name {
+    margin: 0 0 4px;
+    font-size: 26px;
+  }
+
+  p,
+  li {
+    color: $vt320-dim;
+    font-family: $global-font-family;
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .author__bio {
+    margin: 0 0 12px;
+  }
+
+  .author__avatar {
+    display: block;
+    width: auto;
+    height: auto;
+    margin-bottom: 12px;
+
+    img {
+      max-width: 100%;
+      max-height: 175px;
+      padding: 5px;
+      border: 1px dashed $vt320-dim;
+      border-radius: 0;
+    }
+  }
+
+  .author__content {
+    display: block;
+    padding: 0;
+    line-height: 1.25;
+  }
+
+  .author__urls-wrapper {
+    display: block;
+    font-family: $global-font-family;
+    cursor: default;
+
+    button {
+      display: none;
+    }
+  }
+
+  .author__urls {
+    display: block;
+    position: relative;
+    right: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    list-style: none;
+
+    li {
+      white-space: normal;
+
+      &::before {
+        content: "> ";
+        color: $vt320-dim;
+      }
+    }
+
+    a {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      font-size: inherit;
+    }
+  }
+}
+
+.archive .page__title {
+  margin: 0 0 6px;
+  color: $vt320-highlight;
+  font-size: 34px;
+
+  &::before {
+    content: "$ cat ";
+    color: $vt320-dim;
+  }
+
+  &::after {
+    content: "█";
+    margin-left: 6px;
+    animation: vt320-cursor 1s steps(1) infinite;
+  }
+}
+
+.archive__subtitle {
+  margin: 22px 0 4px;
+  padding: 0;
+  color: $vt320-dim;
+  font-size: 24px;
+  border-bottom: 1px solid $vt320-line;
+
+  &::before {
+    content: "== ";
+  }
+
+  &::after {
+    content: " ==";
+  }
+}
+
+.archive__item {
+  margin: 12px 0;
+  padding: 10px 14px;
+  border: 1px solid $vt320-line;
+
+  &-title {
+    margin: 0;
+    color: $vt320-highlight;
+    font-family: $header-font-family;
+    font-size: 28px;
+    text-decoration: underline;
+  }
+
+  .page__meta,
+  .page__date {
+    margin: 0;
+    color: $vt320-dim;
+  }
+
+  &-excerpt {
+    margin-top: 0.5em;
+    color: $vt320-amber;
+    font-size: 22px;
+  }
+}
+
+code,
+tt,
+kbd,
+samp {
+  color: $vt320-highlight;
+  background: #1b1002;
+  border-color: $vt320-line;
+  box-shadow: none;
+}
+
+.page__footer {
+  color: $vt320-dim;
+  border-top: 1px solid $vt320-line;
+
+  footer {
+    max-width: 1000px;
+    padding: 8px 20px;
+  }
+}
+
+@keyframes vt320-cursor {
+  50% { opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .vt320-layout {
+    margin-top: 16px;
+
+    &--with-sidebar {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+  }
+
+  .masthead__inner-wrap {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}

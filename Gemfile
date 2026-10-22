@@ -16,7 +16,7 @@ gem "github-pages", group: :jekyll_plugins
 
 # gem "jekyll"
 
-gem "wdm", "~> 0.1.0" if Gem.win_platform?
+# gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
@@ -27,3 +27,5 @@ group :jekyll_plugins do
 end
 
 gem "webrick", "~> 1.8"
+
+gem "tzinfo-data", "~> 1.2026"
