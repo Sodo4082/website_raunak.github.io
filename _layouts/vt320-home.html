@@ -1,0 +1,102 @@
+---
+layout: compress
+---
+
+{% include base_path %}
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+  <body>
+    {% assign clean_bio = site.author.bio | strip | replace: "\n", " · " | replace: "  ", " " %}
+    {% assign prompt_name = site.author.name | split: " " | first | slugify %}
+    <div class="vt320-home">
+      <div class="vt320-progress" id="vt320-progress" aria-hidden="true"></div>
+      <nav class="vt320-nav" aria-label="Primary navigation">
+        <a class="brand" href="#top">{{ site.title | escape }}</a>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#index">Index</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="hero" id="top" aria-label="Terminal introduction">
+            <div class="binary" aria-hidden="true"><span data-binary="first">01011001 00101101 01110010 01001001 00101101 01110010 01011001 00101101 01110010 01001001 00101101 01110010 01011001 00101101 01110010 01001001 00101101 01110010</span></div>
+          <div class="terminal" id="vt320-terminal" role="status" aria-label="Terminal introduction"
+               data-name="{{ site.author.name | escape }}"
+               data-bio="{{ clean_bio | escape }}"
+               data-location="{{ site.author.location | escape }}"
+              data-prompt="{{ prompt_name }}">
+              <div><span class="terminal-prompt">{{ prompt_name }}@home:~$ </span>whoami</div>
+              <div class="terminal-output">{{ site.author.name | escape }} · {{ clean_bio | escape }}</div>
+              <div><span class="terminal-prompt">{{ prompt_name }}@home:~$ </span>pwd</div>
+              <div class="terminal-output">/{{ site.author.location | slugify | replace: "-", "/" }}</div>
+              <div><span class="terminal-prompt">{{ prompt_name }}@home:~$ </span>ls topics/</div>
+              <div class="terminal-output">machine-learning/ &nbsp; optimization/ &nbsp; bayesian-statistics/</div>
+              <div><span class="terminal-prompt">{{ prompt_name }}@home:~$ </span>ls sections/</div>
+              <div class="terminal-output">about/ &nbsp; index/ &nbsp; blog/ &nbsp; contact/<span class="terminal-cursor" aria-hidden="true"></span></div>
+            </div>
+            <div class="binary binary--reverse" aria-hidden="true"><span data-binary="second">01001001 00101101 01110010 01011001 00101101 01110010 01001001 00101101 01110010 01011001 00101101 01110010 01001001 00101101 01110010 01011001 00101101 01110010</span></div>
+        </section>
+
+        <section id="about" aria-labelledby="about-title">
+          <h2 class="rv" id="about-title">ABOUT</h2>
+          <p class="rv">{{ site.author.bio | newline_to_br }}</p>
+          <p class="rv meta">Based in {{ site.author.location | escape }}.</p>
+        </section>
+
+        <section id="index" aria-labelledby="index-title">
+          <h2 class="rv" id="index-title">INDEX</h2>
+          <div class="index-list rv">
+            {% for link in site.data.navigation.main %}
+              {% assign link_label = link.title | downcase %}
+              {% if link_label == "blog posts" %}
+                {% assign link_url = "#blog" %}
+              {% elsif link.url contains "http" %}
+                {% assign link_url = link.url %}
+              {% else %}
+                {% assign link_url = link.url | prepend: base_path %}
+              {% endif %}
+              <a href="{{ link_url | escape }}"><span>{{ link.title | escape }}</span><small>#{{ link_label | replace: " ", "-" }}</small></a>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section id="blog" aria-labelledby="blog-title">
+          <h2 class="rv" id="blog-title">BLOG POSTS</h2>
+          {% for post in site.posts %}
+            <article class="post rv">
+              <div class="post-meta">{{ post.date | date: "%Y · %B %d, %Y" }}{% if post.read_time %} · {% include read-time.html %}{% endif %}</div>
+              <div class="title"><a href="{{ post.url | prepend: base_path }}">{{ post.title | escape }}</a></div>
+              {% if post.excerpt %}
+                <div>{{ post.excerpt | markdownify }}</div>
+              {% endif %}
+            </article>
+          {% endfor %}
+        </section>
+
+        <section id="contact" aria-labelledby="contact-title">
+          <h2 class="rv" id="contact-title">CONTACT</h2>
+          {% if site.author.email %}
+            <a class="contact-main rv" href="mailto:{{ site.author.email | escape }}">Say hello &rarr;</a>
+          {% endif %}
+          <div class="contact-links rv">
+            {% if site.author.email %}<a href="mailto:{{ site.author.email | escape }}">Email</a>{% endif %}
+            {% if site.author.linkedin %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin | escape }}">LinkedIn</a>{% endif %}
+            {% if site.author.github %}<a href="https://github.com/{{ site.author.github | escape }}">GitHub</a>{% endif %}
+          </div>
+        </section>
+      </main>
+
+      <footer>{{ site.author.email | escape }}:~$ exit_</footer>
+    </div>
+    <script src="{{ base_path }}/assets/js/vt320.js" defer></script>
+    {% include scripts.html %}
+  </body>
+</html>

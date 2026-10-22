@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raunak’s Homepage — VT320 Scroll</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120a00;--fg:#ffb000;--dim:#a86f00;--faint:#6b4500;--line:#5a3a00;--hi:#ffd060;color-scheme:dark;box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#120a00;--fg:#ffb000;--dim:#a86f00;--faint:#6b4500;--line:#5a3a00;--hi:#ffd060}}
+:root[data-theme="dark"]{--bg:#120a00;--fg:#ffb000;--dim:#a86f00;--faint:#6b4500;--line:#5a3a00;--hi:#ffd060}
+html{scroll-behavior:smooth;scroll-padding-top:calc(60px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:24px/1.35 'VT323','Courier New',monospace;text-shadow:0 0 5px rgba(255,176,0,.45)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.25) 0,rgba(0,0,0,.25) 1px,transparent 1px,transparent 3px);box-shadow:inset 0 0 120px rgba(0,0,0,.65)}
+a{color:var(--fg);text-underline-offset:4px;transition:color .25s,background .25s}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 24px 12px;background:linear-gradient(var(--bg) 60%,transparent)}
+nav .brand{color:var(--hi);text-decoration:none}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;color:var(--dim);position:relative}
+nav ul a::before{content:"[";opacity:0;transition:opacity .3s;margin-right:2px}
+nav ul a::after{content:"]";opacity:0;transition:opacity .3s;margin-left:2px}
+nav ul a.on,nav ul a:hover{color:var(--fg)}
+nav ul a.on::before,nav ul a.on::after,nav ul a:hover::before,nav ul a:hover::after{opacity:1}
+#prog{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--fg);transform-origin:0 50%;transform:scaleX(0);z-index:30}
+section{max-width:1000px;margin:0 auto;padding:110px 24px 60px}
+.hero{min-height:62vh;padding-bottom:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}#about{padding-top:30px}
+.bin{width:100%;overflow:hidden;white-space:nowrap;color:var(--faint);font-size:20px;user-select:none}
+.bin span{display:inline-block;animation:slide 40s linear infinite}
+.bin.r span{animation-direction:reverse}
+@keyframes slide{to{transform:translateX(-50%)}}
+h1{font-size:clamp(48px,12vw,120px);line-height:.9;margin:10px 0;color:var(--hi);font-weight:normal}
+h1 .c{display:inline-block;width:.05em;height:.75em;margin-left:.1em;background:var(--hi);box-shadow:0 0 6px rgba(255,176,0,.5);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.sub{color:var(--dim);min-height:1.4em}
+.term{width:100%;max-width:640px;text-align:left;margin:26px 0;padding:14px 20px;border:1px solid var(--line);border-radius:8px;font-size:28px;min-height:360px}
+.term .ps{color:var(--dim)}
+.term .out{color:var(--hi);margin-bottom:8px}
+.term .c{display:inline-block;width:.08em;height:.85em;margin-left:3px;background:var(--hi);vertical-align:-.05em;animation:blink 1s steps(1) infinite}
+.avail{margin-top:18px}
+h2{font-size:clamp(34px,6vw,56px);font-weight:normal;margin:0 0 20px;color:var(--hi);letter-spacing:6px}
+h2::before{content:"## ";color:var(--faint);letter-spacing:0}
+p{max-width:680px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+h2.rv{letter-spacing:24px;filter:blur(6px);transition:opacity .9s ease,transform .9s ease,letter-spacing 1.2s cubic-bezier(.2,.7,.2,1),filter .9s ease}
+h2.rv.in{letter-spacing:6px;filter:blur(0)}
+h2::after{content:"";display:block;height:1px;background:var(--line);margin-top:8px;transform:scaleX(0);transform-origin:0 50%;transition:transform 1.3s .35s cubic-bezier(.2,.7,.2,1)}
+h2.in::after{transform:scaleX(1)}
+.post.rv{transition:opacity .8s ease,transform .8s ease,border-color .3s,box-shadow .3s}
+.idx:not(.in) a{opacity:0}
+.idx.in a{animation:rowin .8s cubic-bezier(.2,.7,.2,1) both}
+.idx.in a:nth-child(2){animation-delay:.12s}.idx.in a:nth-child(3){animation-delay:.24s}.idx.in a:nth-child(4){animation-delay:.36s}
+@keyframes rowin{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+.hero{will-change:opacity,transform}
+.idx a,.pl a{display:flex;justify-content:space-between;gap:12px;padding:10px 4px;border-top:1px solid var(--line);text-decoration:none;font-size:30px;transition:padding .3s,background .3s,color .3s}
+.idx a:last-child,.pl a:last-child{border-bottom:1px solid var(--line)}
+.idx a:hover,.pl a:hover{background:var(--fg);color:var(--bg);padding-left:16px;text-shadow:none}
+.idx small,.pl small{font-size:20px;color:var(--dim);align-self:center}
+.idx a:hover small,.pl a:hover small{color:var(--bg)}
+.post{border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:16px 0;transition:border-color .3s,box-shadow .3s,transform .3s}
+.post:hover{border-color:var(--fg);box-shadow:0 0 8px rgba(255,176,0,.2);transform:translateX(6px)}
+.post .t{font-size:32px;line-height:1.1}
+.meta{color:var(--dim)}
+code{border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--hi)}
+.big{font-size:clamp(34px,7vw,80px);line-height:1;color:var(--hi);text-decoration:none;display:inline-block;margin:6px 0;transition:letter-spacing .4s}
+.big:hover{letter-spacing:4px}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.links a{border:1px solid var(--line);border-radius:6px;padding:0 14px;text-decoration:none;color:var(--hi)}
+.links a:hover{background:var(--fg);color:var(--bg);text-shadow:none}
+footer{text-align:center;color:var(--faint);padding:20px 24px calc(30px + env(safe-area-inset-bottom,0px))}
+@media(max-width:600px){nav ul{gap:12px}.brand{display:none}nav{justify-content:center}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<nav>
+  <a class="brand" href="#top">Raunak</a>
+  <ul><li><a href="#about">About</a></li><li><a href="#index">Index</a></li><li><a href="#blog">Blog</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav>
+
+<section class="hero" id="top">
+  <div class="bin"><span id="b1"></span></div>
+  <div class="term" id="term"></div>
+  <div class="bin r"><span id="b2"></span></div>
+  
+</section>
+
+<section id="about">
+  <h2 class="rv">ABOUT</h2>
+  <p class="rv">Math student with a BS-MS and a growing interest in machine learning. I like turning curiosity into small experiments, and writing the results down here.</p>
+  <p class="rv meta">Based in Gurgaon, India.</p>
+</section>
+
+<section id="index">
+  <h2 class="rv">INDEX</h2>
+  <div class="idx rv">
+    <a href="#"><span>CV</span><small>#cv0-0000/04</small></a>
+    <a href="#"><span>Portfolio</span><small>#pf1-0001/04</small></a>
+    <a href="#"><span>Experiences</span><small>#ex2-0002/04</small></a>
+    <a href="#blog"><span>Blog Posts</span><small>#bl3-0003/04</small></a>
+  </div>
+</section>
+
+<section id="blog">
+  <h2 class="rv">BLOG POSTS</h2>
+  <article class="post rv">
+    <div class="meta">2199 · January 01, 2199 · less than 1 minute read</div>
+    <div class="t"><a href="#">Future Blog Post</a></div>
+    <div>This post will show up by default. To disable scheduling of future posts, edit <code>config.yml</code> and set <code>future: false</code>.</div>
+  </article>
+  <article class="post rv">
+    <div class="meta">2015 · August 14, 2015 · less than 1 minute read</div>
+    <div class="t"><a href="#">Blog Post number 4</a></div>
+    <div>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing this blog post. Blog posts are cool.</div>
+  </article>
+</section>
+
+<section id="contact">
+  <h2 class="rv">CONTACT</h2>
+  <a class="big rv" href="#">Say hello →</a>
+  <div class="links rv"><a href="#">Email</a><a href="#">LinkedIn</a><a href="#">Github</a></div>
+</section>
+<footer>raunak@home:~$ exit_</footer>
+
+<script>
+(function(){
+  function bits(){var s='';for(var i=0;i<60;i++){var n=(65+Math.floor(Math.random()*58)).toString(2).padStart(7,'0');s+=n.split('').join(' ')+'    '}return s}
+  var a=bits();document.getElementById('b1').textContent=a+a;
+  var b=bits();document.getElementById('b2').textContent=b+b;
+  var gen=0,term=document.getElementById('term'),L=[['p','whoami'],['o','Raunak · BS-MS in Math · Interest in ML'],['p','pwd'],['o','/gurgaon/india'],['p','ls topics/'],['o','machine-learning/  optimization/  bayesian-statistics/'],['p','ls sections/'],['o','about/  index/  blog/  contact/']];
+  function line(n,anim){var g=gen,d=document.createElement('div'),s=L[n][1];term.appendChild(d);
+    if(L[n][0]==='o'){d.className='out';d.textContent=s;if(n===L.length-1)d.insertAdjacentHTML('beforeend','<span class="c"></span>');if(anim)setTimeout(function(){if(g===gen)run(n+1)},250);return}
+    d.innerHTML='<span class="ps">raunak@home:~$</span> <span class="cmd"></span><span class="c"></span>';
+    var cmd=d.querySelector('.cmd'),cur=d.querySelector('.c'),last=n===L.length-1;
+    if(!anim){cmd.textContent=s;if(!last)cur.remove();return}
+    var j=0;(function ty(){if(g!==gen)return;cmd.textContent=s.slice(0,j++);if(j<=s.length)setTimeout(ty,70);else{if(!last)cur.remove();setTimeout(function(){if(g===gen)run(n+1)},300)}})()}
+  function run(n){if(n<L.length)line(n,true)}
+  var rmT=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function start(){gen++;term.innerHTML='';if(rmT){for(var q=0;q<L.length;q++)line(q,false)}else{var g0=gen;setTimeout(function(){if(g0===gen)run(0)},400)}}
+  function stop(){gen++;term.innerHTML=''}
+  new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)start();else stop()})},{threshold:.3}).observe(term);
+  var io=new IntersectionObserver(function(es){var k=0;es.forEach(function(e){var t=e.target;clearTimeout(t._tm);if(e.isIntersecting){t.style.transitionDelay=(k++*0.14)+'s';t.classList.add('in');t._tm=setTimeout(function(){t.style.transitionDelay=''},1800)}else{t.style.transitionDelay='';t.classList.remove('in')}})},{threshold:.15});
+  document.querySelectorAll('.rv').forEach(function(x){io.observe(x)});
+  var links=[].slice.call(document.querySelectorAll('nav ul a')),secs=links.map(function(l){return document.querySelector(l.getAttribute('href'))});
+  var prog=document.getElementById('prog'),hero=document.querySelector('.hero'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-innerHeight;
+    prog.style.transform='scaleX('+(max>0?scrollY/max:0)+')';
+    if(hero&&!rm){var f=Math.min(1,scrollY/(innerHeight*.6));hero.style.opacity=1-f;hero.style.transform='translateY('+(scrollY*.2)+'px)'}
+    var cur=-1;secs.forEach(function(s,k){if(s.getBoundingClientRect().top<innerHeight*.4)cur=k});
+    links.forEach(function(l,k){l.classList.toggle('on',k===cur)});
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+</body>
+</html>
