@@ -1,0 +1,28 @@
+cv:
+  items:
+    - label: education
+      title: BS-MS in Mathematics
+      detail: "[Institution] · [years]"
+    - label: toolkit
+      title: Python
+      detail: "PyTorch · scikit-learn · SQL · pandas · Git · Docker"
+  pdf: CV_Raunak.pdf
+  pdf_label: "raunak-cv.pdf"
+work:
+  experience:
+    - title: "[Role] · [Company]"
+      reference: "[dates]"
+      url: "#"
+    - title: "[Role] · [Company]"
+      reference: "[dates]"
+      url: "#"
+  projects:
+    - title: "[Project name]"
+      reference: "[stack]"
+      url: "#"
+    - title: "[Project name]"
+      reference: "[stack]"
+      url: "#"
+    - title: "[Project name]"
+      reference: "[stack]"
+      url: "#"

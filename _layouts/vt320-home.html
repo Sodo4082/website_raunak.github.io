@@ -7,96 +7,151 @@ layout: compress
 <!doctype html>
 <html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
   <head>
+    <script>
+      document.documentElement.dataset.theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    </script>
     {% include head.html %}
-    {% include head/custom.html %}
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   </head>
-  <body>
-    {% assign clean_bio = site.author.bio | strip | replace: "\n", " · " | replace: "  ", " " %}
-    {% assign prompt_name = site.author.name | split: " " | first | slugify %}
+  <body class="vt320-page">
+    {% assign cv_file_path = "/files/" | append: site.data.vt320.cv.pdf %}
+    {% assign cv_file = site.static_files | where: "path", cv_file_path | first %}
+    {% assign cv_education = site.data.vt320.cv.items | first %}
+    {% assign cv_toolkit = site.data.vt320.cv.items | last %}
     <div class="vt320-home">
       <div class="vt320-progress" id="vt320-progress" aria-hidden="true"></div>
-      <nav class="vt320-nav" aria-label="Primary navigation">
-        <a class="brand" href="#top">{{ site.title | escape }}</a>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#index">Index</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
+      <aside class="side" id="sidebar-scroll-panel">
+        <div>
+          <a class="brand" href="#top">{{ site.author.name | split: " " | first | escape }}</a>
+          <div class="role">data scientist<br>ai / ml engineer</div>
+        </div>
+        <div class="hr"></div>
+        <nav class="m" aria-label="Page sections">
+          <a href="#about">About<sup>^1</sup></a>
+          <a href="#cv">CV<sup>^2</sup></a>
+          <a href="#work">Work<sup>^3</sup></a>
+          <a href="#blog">Blog<sup>^4</sup></a>
+          <a href="#contact">Contact<sup>^5</sup></a>
+        </nav>
+        <div class="hr"></div>
+        <div class="mini">
+          <div>{{ site.author.location | escape }}</div>
+          {% if site.author.email %}<a href="mailto:{{ site.author.email | escape }}">Email</a>{% endif %}
+          {% if site.author.linkedin %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin | escape }}">LinkedIn</a>{% endif %}
+          {% if site.author.github %}<a href="https://github.com/{{ site.author.github | escape }}">GitHub</a>{% endif %}
+        </div>
+        <div class="thw"><button id="th" type="button" aria-label="Toggle light or dark theme">[light]</button></div>
+        <div class="stat">VT320 · READY</div>
+        <div class="side-scroll-track" role="scrollbar" aria-label="Sidebar scroll position" aria-controls="sidebar-scroll-panel" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="side-scroll-thumb"></span></div>
+      </aside>
+      <div id="tip" role="status" aria-live="polite">Psst — try the dark mode ↓</div>
       <main>
-        <section class="hero" id="top" aria-label="Terminal introduction">
-            <div class="binary" aria-hidden="true"><span data-binary="first">01011001 00101101 01110010 01001001 00101101 01110010 01011001 00101101 01110010 01001001 00101101 01110010 01011001 00101101 01110010 01001001 00101101 01110010</span></div>
-          <div class="terminal" id="vt320-terminal" role="status" aria-label="Terminal introduction"
-               data-name="{{ site.author.name | escape }}"
-               data-bio="{{ clean_bio | escape }}"
-               data-location="{{ site.author.location | escape }}"
-              data-prompt="{{ prompt_name }}">
-              <div><span class="terminal-prompt">{{ prompt_name }}@home:~$ </span>whoami</div>
-              <div class="terminal-output">{{ site.author.name | escape }} · {{ clean_bio | escape }}</div>
-              <div><span class="terminal-prompt">{{ prompt_name }}@home:~$ </span>pwd</div>
-              <div class="terminal-output">/{{ site.author.location | slugify | replace: "-", "/" }}</div>
-              <div><span class="terminal-prompt">{{ prompt_name }}@home:~$ </span>ls topics/</div>
-              <div class="terminal-output">machine-learning/ &nbsp; optimization/ &nbsp; bayesian-statistics/</div>
-              <div><span class="terminal-prompt">{{ prompt_name }}@home:~$ </span>ls sections/</div>
-              <div class="terminal-output">about/ &nbsp; index/ &nbsp; blog/ &nbsp; contact/<span class="terminal-cursor" aria-hidden="true"></span></div>
+        <section id="top" class="hero">
+          <div class="bin"><span id="b1"></span></div>
+          <div class="kick rv">hello, world —</div>
+          <h1 class="rv">I’m a Data Scientist / AI ML Engineer</h1>
+          <p class="sub rv">{{ site.author.bio | newline_to_br }}</p>
+          <div class="chips rv">
+            <span class="chip">machine-learning</span><span class="chip">optimization</span>
+            <span class="chip">bayesian-statistics</span><span class="chip">python</span>
+          </div>
+          <div class="bin r"><span id="b2"></span></div>
+          <div class="g2 demo-grid">
+            <div class="card rv" id="c1">
+              <div class="t demo-heading"><span>linear regression · gradient descent</span><span class="pill" id="st1">● idle</span></div>
+              <svg viewBox="0 0 400 230" role="img" aria-label="Linear regression fitting data with gradient descent">
+                <line class="ax" x1="20" y1="205" x2="380" y2="205"/><line class="ax" x1="20" y1="25" x2="20" y2="205"/>
+                <polygon class="band" id="bd" points=""/><g class="gp" id="gp"></g><line class="ln" id="ln" x1="20" y1="205" x2="380" y2="205"/>
+              </svg>
+              <div class="ro" id="ro"></div>
             </div>
-            <div class="binary binary--reverse" aria-hidden="true"><span data-binary="second">01001001 00101101 01110010 01011001 00101101 01110010 01001001 00101101 01110010 01011001 00101101 01110010 01001001 00101101 01110010 01011001 00101101 01110010</span></div>
+            <div class="card rv" id="c2">
+              <div class="t demo-heading"><span>decision tree · greedy splits</span><span class="pill" id="st2">● idle</span></div>
+              <svg viewBox="0 0 400 230" role="img" aria-label="Decision tree regression growing through greedy splits">
+                <line class="ax" x1="20" y1="205" x2="380" y2="205"/><line class="ax" x1="20" y1="25" x2="20" y2="205"/>
+                <g class="gp" id="gp2"></g><path class="ln" id="pt" d=""/>
+              </svg>
+              <div class="ro" id="ro2"></div>
+            </div>
+          </div>
         </section>
 
-        <section id="about" aria-labelledby="about-title">
-          <h2 class="rv" id="about-title">ABOUT</h2>
-          <p class="rv">{{ site.author.bio | newline_to_br }}</p>
-          <p class="rv meta">Based in {{ site.author.location | escape }}.</p>
+        <section id="about">
+          <h2 class="rv">ABOUT</h2>
+          <div class="g2">
+            <div class="rv">
+              <p class="about-copy"><strong>{{ site.author.name | escape }}</strong>. {{ site.author.bio | newline_to_br }}</p>
+              <p class="about-location">I write about what I learn here, and I’m based in {{ site.author.location | escape }}.</p>
+            </div>
+            <div class="card facts rv">
+              <div>role: <b>data scientist / ai·ml engineer</b></div>
+              <div>degree: <b>{{ cv_education.title | escape }}</b></div>
+              <div>focus: <b>ML · optimization · bayesian</b></div>
+              <div>location: <b>{{ site.author.location | escape }}</b></div>
+            </div>
+          </div>
+          <div class="g3 interests">
+            <div class="card rv"><h3>machine-learning</h3><div class="t">Regression, trees and neural nets that generalise.</div></div>
+            <div class="card rv"><h3>optimization</h3><div class="t">Gradient methods and how models actually learn.</div></div>
+            <div class="card rv"><h3>bayesian-statistics</h3><div class="t">Priors, posteriors and honest uncertainty.</div></div>
+          </div>
         </section>
 
-        <section id="index" aria-labelledby="index-title">
-          <h2 class="rv" id="index-title">INDEX</h2>
-          <div class="index-list rv">
-            {% for link in site.data.navigation.main %}
-              {% assign link_label = link.title | downcase %}
-              {% if link_label == "blog posts" %}
-                {% assign link_url = "#blog" %}
-              {% elsif link.url contains "http" %}
-                {% assign link_url = link.url %}
-              {% else %}
-                {% assign link_url = link.url | prepend: base_path %}
-              {% endif %}
-              <a href="{{ link_url | escape }}"><span>{{ link.title | escape }}</span><small>#{{ link_label | replace: " ", "-" }}</small></a>
-            {% endfor %}
+        <section id="cv">
+          <h2 class="rv">CV</h2>
+          <div class="g3">
+            <div class="card rv"><div class="t">{{ cv_education.label | escape }}</div><h3>{{ cv_education.title | escape }}</h3><div>{{ cv_education.detail | escape }}</div></div>
+            <div class="card rv"><div class="t">{{ cv_toolkit.label | escape }}</div><h3>{{ cv_toolkit.title | escape }}</h3><div>{{ cv_toolkit.detail | escape }}</div></div>
+            <div class="card rv"><div class="t">download</div><h3>Full CV</h3><div>{% if cv_file %}<a href="{{ cv_file.path | prepend: base_path }}">{{ site.data.vt320.cv.pdf_label | default: "Download PDF" | escape }} →</a>{% else %}PDF not available{% endif %}</div></div>
+          </div>
+        </section>
+
+        <section id="work">
+          <h2 class="rv">EXPERIENCE &amp; PROJECTS</h2>
+          <div class="g2">
+            <div class="rv">
+              <div class="sh">experience</div>
+              {% for item in site.data.vt320.work.experience %}
+                <a class="row" href="{{ item.url | escape }}"><span>{{ item.title | escape }}</span><small>{{ item.reference | escape }}</small></a>
+              {% endfor %}
+            </div>
+            <div class="rv">
+              <div class="sh">projects</div>
+              {% for item in site.data.vt320.work.projects %}
+                <a class="row" href="{{ item.url | escape }}"><span>{{ item.title | escape }}</span><small>{{ item.reference | escape }}</small></a>
+              {% endfor %}
+            </div>
           </div>
         </section>
 
         <section id="blog" aria-labelledby="blog-title">
           <h2 class="rv" id="blog-title">BLOG POSTS</h2>
-          {% for post in site.posts %}
-            <article class="post rv">
-              <div class="post-meta">{{ post.date | date: "%Y · %B %d, %Y" }}{% if post.read_time %} · {% include read-time.html %}{% endif %}</div>
-              <div class="title"><a href="{{ post.url | prepend: base_path }}">{{ post.title | escape }}</a></div>
-              {% if post.excerpt %}
-                <div>{{ post.excerpt | markdownify }}</div>
-              {% endif %}
-            </article>
-          {% endfor %}
+          <div class="g2">
+            {% for post in site.posts %}
+              <a class="card rv blog-card" href="{{ post.url | prepend: base_path }}">
+                <div class="t">{{ post.date | date: "%Y · %B %d, %Y" }} · {% include read-time.html %}</div>
+                <h3>{{ post.title | escape }}</h3>
+                {% if post.excerpt %}<div>{{ post.excerpt | markdownify }}</div>{% endif %}
+              </a>
+            {% endfor %}
+          </div>
         </section>
 
         <section id="contact" aria-labelledby="contact-title">
           <h2 class="rv" id="contact-title">CONTACT</h2>
-          {% if site.author.email %}
-            <a class="contact-main rv" href="mailto:{{ site.author.email | escape }}">Say hello &rarr;</a>
-          {% endif %}
-          <div class="contact-links rv">
-            {% if site.author.email %}<a href="mailto:{{ site.author.email | escape }}">Email</a>{% endif %}
-            {% if site.author.linkedin %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin | escape }}">LinkedIn</a>{% endif %}
-            {% if site.author.github %}<a href="https://github.com/{{ site.author.github | escape }}">GitHub</a>{% endif %}
+          <div class="card rv contact-card">
+            {% if site.author.email %}<a class="big" href="mailto:{{ site.author.email | escape }}">Say hello →</a>{% endif %}
+            <div class="contact-links">
+              {% if site.author.email %}<a class="btn" href="mailto:{{ site.author.email | escape }}">Email</a>{% endif %}
+              {% if site.author.linkedin %}<a class="btn" href="https://www.linkedin.com/in/{{ site.author.linkedin | escape }}">LinkedIn</a>{% endif %}
+              {% if site.author.github %}<a class="btn" href="https://github.com/{{ site.author.github | escape }}">GitHub</a>{% endif %}
+            </div>
           </div>
         </section>
       </main>
 
-      <footer>{{ site.author.email | escape }}:~$ exit_</footer>
+      <footer class="site-footer">{{ site.author.email | escape }}:~$ exit_</footer>
     </div>
-    <script src="{{ base_path }}/assets/js/vt320.js" defer></script>
-    {% include scripts.html %}
+    <script src="{{ base_path }}/assets/js/vt320.js?v=sidebar-5" defer></script>
   </body>
 </html>
